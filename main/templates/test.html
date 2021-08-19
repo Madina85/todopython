@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'styles/test.css' %}">
+    
 </head>
 <body>
-    <h2>Подключение статистической файла</h2>
-    
-
+    {% for todo in todo_list %}
+    <h3>{{ todo.text }} - {{ todo.created_at }}</h3>
+    {% endfor %}
 </body>
+
 </html>

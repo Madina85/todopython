@@ -23,5 +23,5 @@ def news(request):
 
     
 def test(request):
-    todo_list = ToDo.objects.all(),
-    return render(request,"test.html",{"todo_list":todo_list})
+    todo_list = ToDo.objects.all()
+    return render(request,"test.html", {"todo_list":todo_list})
