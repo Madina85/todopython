@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 # from django.views.generic import TemplateView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Goal_for_month
 from .models import ToDo
 from .models import ToMeet
@@ -30,3 +30,10 @@ def test(request):
 def meeting(request):
     meeting_list = ToMeet.objects.all()
     return render(request,"meeting.html", {"meeting_list":meeting_list})
+
+def add_todo(request):
+    form = request.POST
+    text = form["todo_text"]
+    todo = ToDo(text=text)
+    todo.save()
+    return redirect(test)   
