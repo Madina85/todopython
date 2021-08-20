@@ -5,6 +5,7 @@ from .models import ToMeet
 from .models import Goal_for_month
 
 
+
 admin.site.register(ToDo)
 admin.site.register(ToMeet)
 
