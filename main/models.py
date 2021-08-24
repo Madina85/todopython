@@ -27,3 +27,9 @@ class Goal_for_month(models.Model):
     #     return self.title 
 
  
+class Habits(models.Model):
+    name = models.CharField(max_length=100)
+    done_for_today = models.CharField(max_length=100)
+    comment = models.CharField(max_length=100)
+    important = models.BooleanField(default=False)
+   

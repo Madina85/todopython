@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/habits.css' %}" />
+</head>
+<body>
+    {% block content %}
+    <div class="create">
+        <h1>Списак желаний</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.done_for_today }}<br>
+            {{ form.comment }}<br>
+            {{ form.important }}<br>
+            <span>{{ error }} </span>
+            <input type="date" class="form-control"><br>
+            <button class="create_button" type="sumbit">Добавить</button>           
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

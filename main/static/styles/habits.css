@@ -1,0 +1,17 @@
+form{
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+.create_button{
+    padding: 5px 10px;
+    background-color: #CE93D8;
+    border: 1px solid #CE93D8;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}

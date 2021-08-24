@@ -1,9 +1,11 @@
+
 from django.http.response import HttpResponse
 # from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from .models import Goal_for_month
 from .models import ToDo
 from .models import ToMeet
+from .forms import HabitsForm
 
 
 
@@ -37,3 +39,21 @@ def add_todo(request):
     todo = ToDo(text=text)
     todo.save()
     return redirect(test)   
+
+
+def habits(request):
+    if request.method == 'POST':
+        form = HabitsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(habits)
+     
+
+    form = HabitsForm()
+    data = {
+        'form':form,
+        
+    }
+    
+    return render(request, "habits.html", data)
+
