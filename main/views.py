@@ -57,3 +57,9 @@ def habits(request):
     
     return render(request, "habits.html", data)
 
+
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)    
+

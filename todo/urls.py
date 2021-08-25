@@ -28,7 +28,8 @@ urlpatterns = [
     path("news/", news, name="news"),
     path("meeting/", meeting, name="meeting"),
     path("add-todo/", add_todo, name="add-todo"),
-    path("habits/", habits, name="habits")
+    path("habits/", habits, name="habits"),
+    path("delete-todo/<id>/", delete_todo, name="delete-todo")
     
    
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
