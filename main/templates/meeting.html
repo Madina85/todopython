@@ -13,7 +13,11 @@
     <div class="todo_container">
         {% for meet in tomeet_list %}
         
-        <div class="todo_item">
+        <div class="todo_item 
+        {% if tomeet.is_favorite %}
+            marked
+        {% endif%}
+        ">
             <div class="todo_item_header">
                 <label class="checkbox_container">
                     <input type="checkbox" />
@@ -24,7 +28,7 @@
             <div class="todo_item_footer">
                 <p>{{ meet.date_of_meeting}}</p>
                 <div class="action buttons">
-                    <img src="{% static './icons/star.png' %}" />
+                    <a href="{% url 'mark-tomeet' tomeet %}"><img src="{% static './icons/star.png' %}" />
                     <a href="{% url 'delete-tomeet' tomeet.id %}"><img src="{% static './icons/delete.png' %}" />
                 </div>
             </div>
@@ -32,15 +36,6 @@
         {% endfor %}
 
 </div>
-    
-
-    
-    <hr/>
-    
-    <h2>{{ meet.persone }}</h2>
-    <h2>{{ meet.phone_number }}</h2>
-    <h2>{{ meet.date_of_meeting }}</h2>
-    <hr/>
    
 </body>
 </html>
