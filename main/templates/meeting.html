@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/checkboxc.css' %}" />
 </head>
 <body>
+    <div class="todo_container">
+        {% for meet in tomeet_list %}
+        
+        <div class="todo_item">
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    <h4>{{ meet.persone }}</h4>
+            </label>
+            </div>
+            <div class="todo_item_footer">
+                <p>{{ meet.date_of_meeting}}</p>
+                <div class="action buttons">
+                    <img src="{% static './icons/star.png' %}" />
+                    <a href="{% url 'delete-tomeet' tomeet.id %}"><img src="{% static './icons/delete.png' %}" />
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+</div>
+    
+
+    
     <hr/>
-    {% for meet in meeting_list %}
+    
     <h2>{{ meet.persone }}</h2>
     <h2>{{ meet.phone_number }}</h2>
     <h2>{{ meet.date_of_meeting }}</h2>
     <hr/>
-    {% endfor %}
+   
 </body>
 </html>

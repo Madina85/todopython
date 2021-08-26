@@ -30,8 +30,8 @@ def test(request):
     return render(request,"test.html", {"todo_list":todo_list})
 
 def meeting(request):
-    meeting_list = ToMeet.objects.all()
-    return render(request,"meeting.html", {"meeting_list":meeting_list})
+    tomeet_list = ToMeet.objects.all()
+    return render(request,"meeting.html", {"tomeet_list":tomeet_list})
 
 def add_todo(request):
     form = request.POST
@@ -62,4 +62,27 @@ def delete_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.delete()
     return redirect(test)    
+
+
+
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = True
+    todo.save()
+    return redirect(test)
+
+
+def mark_undo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = False
+    todo.save()
+    return redirect(test)
+
+
+
+def delete_tomeet(request, id):
+    meet = ToMeet.objects.get(id=id) 
+    meet.delete()
+    return redirect(meeting)   
+
 
