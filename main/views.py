@@ -92,3 +92,8 @@ def mark_tomeet(request, id):
     meet.save()
     return redirect(meeting)
 
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(test)
